@@ -54,13 +54,26 @@ function toggleStatus(e){
 }
 toggleButton.addEventListener('click', toggleStatus); //check for button clicks, no () since only event object is passed
 function createTimestamp(){
-    var timeSpan = document.getElementById('timeSpan');
-    if(timeSpan == null){ //check if timestamp span exists
-        timeSpan = document.createElement("span");//create span
-        timeSpan.id = 'timeSpan';//id to check for 
-    }
-    timeSpan.innerHTML = new Date().toLocaleTimeString(); //get time
-    statusOutput.appendChild(timeSpan);
+    /*
+        This code only creates 1 span and replaces the innerhtml with the new timestamp.
+        This code was made after the newSpan code, as I later thought that the creation 
+        of multiple spans was not the required solution so I made this code that creates
+        only 1 span.
+        I also see this as being a more neater design, but would have made the span in the html
+        instead if that were the case. 
+    */
+    // var timeSpan = document.getElementById('timeSpan');
+    // if(timeSpan == null){ //check if timestamp span exists
+    //     timeSpan = document.createElement("span");//create span
+    //     timeSpan.id = 'timeSpan';//id to check for 
+    // }
+    // timeSpan.innerHTML = new Date().toLocaleTimeString(); //get time
+    // statusOutput.appendChild(timeSpan);
+
+    //this code creates a new span for each timestamp
+    var newSpan = document.createElement("span"); //create span
+    newSpan.innerHTML = new Date().toLocaleTimeString(); //get time
+    statusOutput.appendChild(newSpan);//show on page
 }
 
 /* ======================================= */
